@@ -16,9 +16,9 @@ DATAFRAME_TEMPORARY_COLLECTION_FILE_NAME = "dataframe_collecting_" + UNIQUE_TIME
 DATAFRAME_AFTER_COLLECTION_FILE_NAME = "dataframe_collected_finished_" + UNIQUE_TIME_ID + ".csv"
 DATAFRAME_AFTER_COLLECTION_FILE_NAME_WITHOUT_FULL_RESPONSE = "collect_finished_clean" + UNIQUE_TIME_ID + ".csv"
 DEFAULT_DUMB_TARGETING = {'geo_locations': {u'regions': [{u'key': u'3843'}], 'location_types': ['home']}, 'genders': [0], }
-REACHESTIMATE_URL = "https://graph.facebook.com/v2.9/act_{}/reachestimate"
-GRAPH_SEARCH_URL = "https://graph.facebook.com/v2.9/search"
-TARGETING_SEARCH_URL = "https://graph.facebook.com/v2.9/act_{}/targetingsearch"
+REACHESTIMATE_URL = "https://graph.facebook.com/v2.10/act_{}/reachestimate"
+GRAPH_SEARCH_URL = "https://graph.facebook.com/v2.10/search"
+TARGETING_SEARCH_URL = "https://graph.facebook.com/v2.10/act_{}/targetingsearch"
 TOKENS = []
 INPUT_AGE_RANGE_FIELD = "ages_ranges"
 INPUT_GEOLOCATION_FIELD = "geo_locations"
@@ -26,6 +26,7 @@ INPUT_GEOLOCATION_LOCATION_TYPE_FIELD = "location_types"
 DEFAULT_GEOLOCATION_LOCATION_TYPE_FIELD = ["home"]
 INPUT_GENDER_FIELD = "genders"
 INPUT_INTEREST_FIELD = "interests"
+INPUT_CONNECTIONS_FIELD = "connections"
 GROUP_ID_FIELD = "group_id"
 INPUT_BEHAVIOR_FIELD = "behavior"
 INPUT_SCHOLARITY_FIELD = "scholarities"
@@ -42,6 +43,7 @@ MIN_AGE = "min"
 MAX_AGE = "max"
 DETAILS_FIELD_FROM_FACEBOOK_TARGETING_SEARCH = ["id", "name", "type", "description", "audience_size", "path","key","supports_city","supports_region"]
 API_INTEREST_FIELD = "interests"
+API_CONNECTIONS_FIELD = "connections"
 API_BEHAVIOR_FIELD = "behaviors"
 API_HOUSEHOLD_COMPOSITION_FIELD = "household_composition"
 
@@ -61,6 +63,7 @@ PUBLISHER_PLATFORM_DEFAULT = ["facebook"]
 
 INPUT_FIELDS_TO_COMBINE = [
     INPUT_INTEREST_FIELD,
+    INPUT_CONNECTIONS_FIELD,
     INPUT_AGE_RANGE_FIELD,
     INPUT_GENDER_FIELD,
     INPUT_BEHAVIOR_FIELD,
@@ -78,6 +81,7 @@ ALLOWED_FIELDS_IN_INPUT = DATAFRAME_COLUMNS + [PERFORM_AND_BETWEEN_GROUPS_INPUT_
 
 ADVANCE_TARGETING_FIELDS_TYPE_ARRAY_IDS = [
     INPUT_INTEREST_FIELD,
+    INPUT_CONNECTIONS_FIELD,
     INPUT_BEHAVIOR_FIELD,
     INPUT_CITIZENSHIP_BEHAVIOR_SUBFIELD,
     INPUT_ACCESS_DEVICES_BEHAVIOR_SUBFIELD,
@@ -91,6 +95,7 @@ ADVANCE_TARGETING_FIELDS_TYPE_ARRAY_INTEGER = [
 INPUT_TO_API_FIELD_NAME = {
     INPUT_GENDER_FIELD : API_GENDER_FIELD,
     INPUT_INTEREST_FIELD: API_INTEREST_FIELD,
+    INPUT_CONNECTIONS_FIELD: API_CONNECTIONS_FIELD,
     INPUT_BEHAVIOR_FIELD: API_BEHAVIOR_FIELD,
     INPUT_CITIZENSHIP_BEHAVIOR_SUBFIELD: API_BEHAVIOR_FIELD,
     INPUT_HOUSEHOLD_COMPOSITION_FIELD: API_HOUSEHOLD_COMPOSITION_FIELD,
@@ -101,7 +106,7 @@ INPUT_TO_API_FIELD_NAME = {
 }
 
 ADVANCE_TARGETING_FIELDS = [
-    INPUT_INTEREST_FIELD, INPUT_BEHAVIOR_FIELD, INPUT_SCHOLARITY_FIELD, INPUT_FAMILYSTATUS_FIELD, INPUT_BEHAVIOR_FIELD
+    INPUT_INTEREST_FIELD, INPUT_CONNECTIONS_FIELD, INPUT_BEHAVIOR_FIELD, INPUT_SCHOLARITY_FIELD, INPUT_FAMILYSTATUS_FIELD, INPUT_BEHAVIOR_FIELD
 ]
 
 FAKE_DATA_RESPONSE_CONTENT = '{"mockResponse":true, "data": { "users":0, 	"bid_estimations":[ { "unsupported":false, "location":0, "reach_min":0,	"reach_max":0, "cpm_curve_data":"",	"cpc_curve_data":"", "cpa_curve_data":"", "dedup_winning_rate":0,"dedup_status":0, "pacing_status":0,"account_budget":0,"estimate_DAU":0, "curve":[	{"bid":0,"spend":0,"reach":0,"impressions":0,"actions":0}],"trace_id":"0","bid_amount_min":0,"bid_amount_median":0,"bid_amount_max":0}],"estimate_ready":false}}'
